@@ -44,10 +44,14 @@ Then I ran following (removing code/inspect_cat.ipynb alone pushed my .git size 
 
 ```bash
 git filter-branch -f  --index-filter \
-    'git rm --force --cached --ignore-unmatch (replace with the filepath)' \
+    'git rm --force --cached --ignore-unmatch freesound.py' \
      -- --all
 rm -Rf .git/refs/original && \
     git reflog expire --expire=now --all && \
     git gc --aggressive && \
     git prune
+```
+To force changes in .git object pruning.
+```bash
+git push origin --force --all
 ```
