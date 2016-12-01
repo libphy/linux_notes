@@ -137,7 +137,7 @@ To answer which cuDNN to use and the location,
 cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 ```
 It gives a result: '5'.    
-**Warning:** *Be sure to enter correct locations for CUDA and cuDNN. Even both /cuda and /cuda-8.0 folders contained seemingly identical files, switching around the location info makes errors after TensorFlow is installed.*
+**Warning:** *Be sure to enter correct locations for CUDA and cuDNN. Even both /cuda and /cuda-8.0 folders contained seemingly identical files, switching around the location info makes errors after TensorFlow is installed.*    
 Compute capability for Titan X is '5.2'.    
 There are many other options to choose such as google cloud platform, hadoop, openCL, etc- which may ask a bunch of additional questions on all kinds of dependencies and their locations. To save time, I'll skip those for now, and go for plain configuration  with GPU and CUDA support enabled.
  Now, tensorflow is configured successfully
