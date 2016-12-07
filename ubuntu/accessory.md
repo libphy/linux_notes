@@ -26,7 +26,7 @@ sudo openconnect vpn.example.com
 ```
 ## sshfs
 ```bash
-mkdir ~/remote_code
+mkdir ~/myfolders/remote_code
 sshfs remote.example.com:/home/$USER/code ~/myfolders/remote_code
 ```
 The changes made in the 'remote_code' folder takes an effect. To unmount the files,
