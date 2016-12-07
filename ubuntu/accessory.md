@@ -1,3 +1,4 @@
+# Media files
 ## ffmpeg
 ffmpeg is a simple and quite powerful editor for audio and video files.
 
@@ -17,3 +18,19 @@ ffmpeg -i input.wav -ar 22050 -ac 1 output.wav
 ffmpeg -i input.XXX [-options] output.YYY
 ```
 To change many files at once, one can do using python subprocess and for-loop.
+
+# Remote access
+## VPN
+```bash
+sudo openconnect vpn.example.com
+```
+## sshfs
+```bash
+mkdir ~/remote_code
+sshfs remote.example.com:/home/$USER/code ~/myfolders/remote_code
+```
+The changes made in the 'remote_code' folder takes an effect. To unmount the files,
+```bash
+fusermount -u ~/myfolders/remote_code
+```
+Now when I cd into `/remote_code`, those files are not seen as they are unmounted.
