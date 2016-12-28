@@ -121,15 +121,20 @@ And it works beautifully!
 Found [this article](https://devtalk.nvidia.com/default/topic/936429/-solved-tensorflow-with-gpu-in-anaconda-env-ubuntu-16-04-cuda-7-5-cudnn-/) about installing ubuntu 16 + CUDA 7.5 + anaconda tensorflow gpu. It worked on my computer with CUDA 7.5 installed. I haven't tried with other CUDA version.
 
 Create a tensorflow environment using Python 3.5:
+```bash
 $ conda create -n tensorflow python=3.5
-
+```
 Download tensorflow & rename the whl:
+```bash
 $ wget https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.8.0-cp34-cp34m-linux_x86_64.whl
 $ mv tensorflow-0.8.0-cp34-cp34m-linux_x86_64.whl tensorflow-0.8.0-cp35-none-linux_x86_64.whl
-
+```
 Start the "tensorflow" env
+```bash
 $ source activate tensorflow
 (tensorflow) $ pip install --ignore-installed --upgrade tensorflow-0.8.0-cp35-none-linux_x86_64.whl
+```
 To exit the env
+```bash
 (tensorflow) $ source deactivate 
-
+```
