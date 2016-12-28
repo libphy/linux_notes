@@ -20,3 +20,23 @@ And realized that there are many locations that python store packages.
   This folder has all kinds of libraries including IPython, jupyter, matplotlib, pandas, and pip.
 
 I was puzzled why there are so many different locations exist for python libraries. Some people online say that it depends on installation route, such as through apt-get or pip install.
+
+# Using Anaconda
+Managing environments with conda is useful.
+For example, creating an environment with python version 3.5 with name TEST can be done by 
+```bash
+conda create -n TEST python=3.5 ipython
+```
+To remove an environment:    
+```bash
+conda remove --name TEST --all
+```
+Note that if ipython is not included, ipython in the conda environment will pull system ipython which maybe on a different python version. It seems a bug, and is explained why [here](http://conda.pydata.org/docs/troubleshooting.html#shell-command-location)    
+To activate/deactivate:
+```bash
+$ source activate TEST
+(TEST) user@PCname:~$
+(TEST) ....:~$ source deactivate TEST
+$
+```
+
