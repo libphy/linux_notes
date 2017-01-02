@@ -122,21 +122,21 @@ Found [this article](https://devtalk.nvidia.com/default/topic/936429/-solved-ten
 
 Create a tensorflow environment using Python 3.5:
 ```bash
-$ conda create -n tensorflow python=3.5
+$ conda create -n TF python=3.5
 ```
 Download tensorflow & rename the whl:
 ```bash
 $ wget https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.8.0-cp34-cp34m-linux_x86_64.whl
 $ mv tensorflow-0.8.0-cp34-cp34m-linux_x86_64.whl tensorflow-0.8.0-cp35-none-linux_x86_64.whl
 ```
-Start the "tensorflow" env
+Start the "TF" env
 ```bash
-$ source activate tensorflow
-(tensorflow) $ pip install --ignore-installed --upgrade tensorflow-0.8.0-cp35-none-linux_x86_64.whl
+$ source activate TF
+(TF) $ pip install --ignore-installed --upgrade tensorflow-0.8.0-cp35-none-linux_x86_64.whl
 ```
 To exit the env
 ```bash
-(tensorflow) $ source deactivate
+(TF) $ source deactivate
 ```
 ### Upgrading to the latest version of tensorflow
 Above example used a outdated version.
@@ -182,9 +182,9 @@ $ wget https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-0.12.1
 $ mv tensorflow_gpu-0.12.1-cp35-cp35m-linux_x86_64.whl tensorflow_gpu-0.12.1-cp35-none-linux_x86_64.whl
 # changed the name to maybe what conda uses
 ```
-Get in to the environment (foe example MYENV) and install.
+Get in to the environment "TF" (as an example we used above) and install.
 ```bash
-$ source activate MYENV
-(MYENV) username@pcname $ pip install --ignore-installed --upgrade tensorflow_gpu-0.12.1-cp35-none-linux_x86_64.whl
+$ source activate TF
+(TF) $ pip install --ignore-installed --upgrade tensorflow_gpu-0.12.1-cp35-none-linux_x86_64.whl
 ```
 Now check the version of tensorflow - It worked for me!
