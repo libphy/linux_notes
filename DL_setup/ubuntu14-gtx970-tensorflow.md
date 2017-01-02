@@ -51,7 +51,7 @@ I checked my cudnn library file version was 4.0.7 unlike 4.0.4 in web examples. 
 ```
 geena@ubu:~/Downloads/tensorflow-master$ ./configure
 Please specify the location of python. [Default is /usr/bin/python]:
-Do you wish to build TensorFlow with Google Cloud Platform support? [y/N] 
+Do you wish to build TensorFlow with Google Cloud Platform support? [y/N]
 No Google Cloud Platform support will be enabled for TensorFlow
 Do you wish to build TensorFlow with GPU support? [y/N] y
 GPU support will be enabled for TensorFlow
@@ -136,5 +136,55 @@ $ source activate tensorflow
 ```
 To exit the env
 ```bash
-(tensorflow) $ source deactivate 
+(tensorflow) $ source deactivate
 ```
+### Upgrading to the latest version of tensorflow
+Above example used a outdated version.
+```bash
+# To check the tensorflow version
+python -c 'import tensorflow as tf; print(tf.__version__)'  # for Python 2
+python3 -c 'import tensorflow as tf; print(tf.__version__)'  # for Python 3
+```
+To upgrade to 0.12.1 (current latest version - as of 2017 Jan), I had to install CUDA toolkit 8.0 and cudNN 5.1. Follow the similar process as above.
+```bash
+## CUDA toolkit installation
+## Downloaded .run file
+(ctrl+alt+F1) #to get into tty1
+sudo service lightdm stop # This turns off GUI. If lightdm doesn't exist, try gdm.
+sudo sh cuda_8.0.44_linux.run
+
+sudo service lightdm start # After the installation, start GUI
+(ctrl+alt+F7) # to go back to GUI
+```
+When installing CUDA toolkit, pay attention to the installation location. The .run file has default location of `/usr/local/cuda-#.#` whereas the tensorflow instruction assumes `usr/local/cuda`.    
+Then download correct version of cudNN.
+```bash
+# Downloaded cudnn-8.0-linux-x64-v5.1.tgz
+# cd into the download location
+tar xvzf cudnn-8.0-linux-x64-v5.1.tgz # folder 'cuda' is created when extraced.
+sudo cp -P cuda/include/cudnn.h /usr/local/cuda-8.0/include
+sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-8.0/lib64
+sudo chmod a+r /usr/local/cuda-8.0/include/cudnn.h /usr/local/cuda-8.0/lib64/libcudnn*
+sudo apt-get install libcupti-dev # Installs other dependencies
+```
+Installing the new CUDA toolkit will wipe out the `/usr/local/cuda`'s library files to  the latest ones, thus importing the tensorflow (cuda 7.5 in my case) won't work. It works when adding a specific path to the old library files. Open the location where LD_LIBRARY_PATH is: '.profile' or '.bashrc'.  
+```
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda-7.5/lib64"
+export CUDA_HOME=/usr/local/cuda
+# include following if PATH doesn't have it already
+export PATH=/usr/local/cuda/bin:$PATH
+```
+It seems `CUDA_HOME` doesn't need to be changed.
+Then download the latest wheel. The link can be found 'Pip installation' on the tensorflow setup guide page.
+```bash
+$ wget https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-0.12.1-cp35-cp35m-linux_x86_64.whl
+# output: Saving to: ‘tensorflow_gpu-0.12.1-cp35-cp35m-linux_x86_64.whl’
+$ mv tensorflow_gpu-0.12.1-cp35-cp35m-linux_x86_64.whl tensorflow_gpu-0.12.1-cp35-none-linux_x86_64.whl
+# changed the name to maybe what conda uses
+```
+Get in to the environment (foe example MYENV) and install.
+```bash
+$ source activate MYENV
+(MYENV) username@pcname $ pip install --ignore-installed --upgrade tensorflow_gpu-0.12.1-cp35-none-linux_x86_64.whl
+```
+Now check the version of tensorflow - It worked for me!
