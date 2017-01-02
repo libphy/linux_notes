@@ -167,9 +167,9 @@ sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-8.0/lib64
 sudo chmod a+r /usr/local/cuda-8.0/include/cudnn.h /usr/local/cuda-8.0/lib64/libcudnn*
 sudo apt-get install libcupti-dev # Installs other dependencies
 ```
-Installing the new CUDA toolkit will wipe out the `/usr/local/cuda`'s library files to  the latest ones, thus importing the tensorflow (cuda 7.5 in my case) won't work. It works when adding a specific path to the old library files. Open the location where LD_LIBRARY_PATH is: '.profile' or '.bashrc'.  
+Installing the new CUDA toolkit will wipe out the `/usr/local/cuda`'s library files to  the latest ones, thus importing the tensorflow (cuda 7.5 in my case) won't work. It works when adding a specific path to the old library files. Open the location where LD_LIBRARY_PATH is: '.profile' or '.bashrc'. (I added cuda-7.5 and cura-8.0 library location)  
 ```
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda-7.5/lib64"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cudnn:/usr/local/cuda-7.5/lib64:/usr/local/cuda-8.0/lib64" 
 export CUDA_HOME=/usr/local/cuda
 # include following if PATH doesn't have it already
 export PATH=/usr/local/cuda/bin:$PATH
@@ -187,4 +187,17 @@ Get in to the environment "TF" (as an example we used above) and install.
 $ source activate TF
 (TF) $ pip install --ignore-installed --upgrade tensorflow_gpu-0.12.1-cp35-none-linux_x86_64.whl
 ```
-Now check the version of tensorflow - It worked for me!
+Now check the version of tensorflow - It worked for me!    
+**Note- Make sure the gpu is recognized!** 
+```python
+import tensorflow as tf
+# Creates a graph.
+a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
+b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
+c = tf.matmul(a, b)
+# Creates a session with log_device_placement set to True.
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+# Runs the op.
+print(sess.run(c))
+```
+I had a mysterious error that it did not recognize my gpu at first, (turned out that some environment variables were not correctly updated even after sourcing) but rebooting the computer solved the issue. I checked jupyter notebook also runs correctly with gpu.
