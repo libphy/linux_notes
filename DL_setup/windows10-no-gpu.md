@@ -48,6 +48,14 @@ Now, get into ipython and check if those packages are installed correctly.
 You'll be in the ipython consol
 ```
 (ipython)
+Python 3.5.3 |Continuum Analytics, Inc.| (default, Feb 22 2017, 21:28:42) [MSC v.1900 64 bit (AMD64)]
+Type "copyright", "credits" or "license" for more information.
 
-[1] import numpy as np
+IPython 5.3.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+[1]
 ```
