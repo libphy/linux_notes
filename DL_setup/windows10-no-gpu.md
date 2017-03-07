@@ -29,7 +29,9 @@ It will change your prompt to
 (cmd)
 (MYENV) $
 ```
-This means you're now using the MYENV environment. Let's see which packages are in the environment by typing `conda list` while in the environment. The newly created environment is pretty empty.    
+This means you're now using the MYENV environment. Let's see which packages are in the environment by typing `conda list` while in the environment. The newly created environment is pretty empty.   
+
+#### STEP 3. Install basic packages
 Let's install some essential python packages.
 ```
 (cmd)
@@ -57,5 +59,46 @@ IPython 5.3.0 -- An enhanced Interactive Python.
 help      -> Python's own help system.
 object?   -> Details about 'object', use 'object??' for extra details.
 
-[1]
+In [1]
 ```
+The stuff on the top of the consol says Anaconda, python and ipython versions- check if it's the right one you specified. Sometimes it can make an error to persist on the system python if the environment variable is not set correctly.    
+Now, play with importing some packages you've installed. When you checked them imported correctly, you can exit ipython.
+```
+In [1] import numpy as np
+In [2] exit
+```
+You can also check by `conda list` in the cmd.
+Test if your jupyter notebook works.
+```
+(cmd)
+(MYENV) $ jupyter notebook
+```
+It will spit out a bunch of logs on the cmd window, and the notebook will show up in your default browser. You can navigate or create a notebook and play with it. If you have multiple conda environments installed, you can choose your kernel of the notebook. When you want to exit, press `ctrl-C` on your cmd that's running the notebook.   
+
+#### STEP 4. Install TensorFlow and Keras
+Now, let's install packages for deep learning. Follow the instruction at https://www.tensorflow.org/install/install_windows
+```
+(cmd)
+(MYENV) $ pip install --upgrade tensorflow
+```
+If all basic packages are up to date, the tensorflow installation will work without an error. If you encounter an error, you may be missing some prerequisite packages or they may be old ones. Install or update those if you have to.     
+
+Now, let's install keras. [Keras](https://keras.io/) is a library that makes it easy to build models for deep learning. It works on top of a lower level library such as TensorFlow and Theano which are efficient in matrix algebra and symbolic calculations as well as controlling GPU. As of now, it uses tensorflow as backend, but there is a way to change the default in the configuration file if you want.
+```
+(cmd)
+(MYENV) $ pip install keras
+```
+Check in ipython
+```
+(ipython)
+In [1] import keras
+```
+It will show a simple line `Using TensorFlow backend.` if you're using non-GPU version.
+Now you have essential packages for deep learning!
+
+### Resources
+1. [Check out more essential packages for Data Science and Machine Learning](https://www.upwork.com/hiring/data/15-python-libraries-data-science/)
+2. Image processing packages
+  - [skimage](http://scikit-image.org/) : easy to use image processing library for python
+  - [opencv](https://pypi.python.org/pypi/opencv-python) : image processing library - fast and mature
+  - [simpleITK](http://www.simpleitk.org/SimpleITK/resources/software.html) : good for medical images
