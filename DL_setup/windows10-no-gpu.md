@@ -101,5 +101,5 @@ Now you have essential packages for deep learning!
 2. Image processing packages
   - [skimage](http://scikit-image.org/) : easy to use image processing library for python
   - [opencv](https://pypi.python.org/pypi/opencv-python) : image processing library - fast and mature
-  - [simpleITK](http://www.simpleitk.org/SimpleITK/resources/software.html) : good for medical images
+  - [simpleITK](http://www.simpleitk.org/SimpleITK/resources/software.html) : good for medical images    
   See [windows_packages.md](https://github.com/libphy/os_notes/blob/master/DL_setup/windows_packages.md) for installation info.
