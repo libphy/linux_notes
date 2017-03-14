@@ -13,9 +13,9 @@ https://www.git-tower.com/blog/git-hosting-services-compared/
 
 ## Setup a Git
 You are free to use any git hosting service you prefer. If it's your first time using git, I recommend trying github, because it's the most popular, so you'll easily find someone's repository you can learn something from. Below is a guide how to setup github.
-https://help.github.com/categories/bootcamp/
-A shortcut to downloading Git: https://git-scm.com/downloads
-If you already have Anaconda installed, you can also do in your cmd or bash
+https://help.github.com/categories/bootcamp/     
+A shortcut to downloading Git: https://git-scm.com/downloads    
+If you already have Anaconda installed, you can also do in your cmd or bash    
 ```bash
 conda install git
 ```
