@@ -19,7 +19,7 @@ https://help.github.com/categories/bootcamp/
 If you found an interesting project in someone's github, or you have a repo from your class, you can **fork** to your github account by clinking (while you're signed-in) the **fork** icon on the top of the project repo that you're trying to copy.
 
 ## Useful git commands
-#### For unix/linux users    
+ 
 When you create a repository or forked from someone else in the github website, you will see a list of repositories in your github main page. A repository that's sitting online is called **remote repository** since it's hosted by their server. You will **clone** it to your computer, then the copied folder is called **local repository**.
 Once you have your remote repository, go to your remote repository online, then find a green button that says "Clone or download". Open your bash/cmd window and cd into the folder location you want to set the local repository. Let's say, your git repo url is "https://github.com/myusername/test-project" (you can name it differently), then type
 ```bash
