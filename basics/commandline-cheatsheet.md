@@ -18,7 +18,7 @@ In the commands below, **bold** texts such as **myfolder** can be any name you w
 |Rename a file| move **myfile.txt** **myfile1.txt**| mv **myfile.txt** **myfile1.txt**|
 |Remove a file| del **myfile1.txt**|rm **myfile1.txt**|
 |Remove an empty directory| rmdir **Foo**|rm **Foo**|
-|Remove a directory and its contents recursively|rmdir /s **myfolder**|rm -r **myfolder**|
+|Remove a directory and its contents recursively|rmdir /s **myfolder**|rm -r **myfolder** </br> rm -rf **myfolder** (*To force remove all contents*)|
 
 
 Tips:  
@@ -27,8 +27,8 @@ Tips:
 If you have a HOMEPATH, you can go there by typing `cd %HOMEPATH%`.    
 If you don't have one or want to change to a different location- check it out [here](http://stackoverflow.com/questions/11928078/permanently-change-environment-variables-in-windows) or just google how to set HOMEPATH in cmd.
 
-### Useful shortcuts
+### Useful keyboard shortcuts inside the cmd or bash
 | Function       | cmd shortcut           | bash shortcut  |
 | ------------- |:-------------| :-----|
-|Copy from the shell|`ctrl`+c| `shift`+`ctrl`+c|
-|Paste to the shell|`ctrl`+v| `shift`+`ctrl`+v|
+|Copy from the shell|`ctrl`+c| `shift`+`ctrl`+c (*linux*) </br> `Command`+c (*mac*)|
+|Paste to the shell|`ctrl`+v| `shift`+`ctrl`+v (*linux*) </br> `Command`+v (*mac*)|
