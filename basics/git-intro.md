@@ -14,6 +14,11 @@ https://www.git-tower.com/blog/git-hosting-services-compared/
 ## Setup a Git
 You are free to use any git hosting service you prefer. If it's your first time using git, I recommend trying github, because it's the most popular, so you'll easily find someone's repository you can learn something from. Below is a guide how to setup github.
 https://help.github.com/categories/bootcamp/
+A shortcut to downloading Git: https://git-scm.com/downloads
+If you already have Anaconda installed, you can also do in your cmd or bash
+```bash
+conda install git
+```
 
 ## Forking someone's project repo
 If you found an interesting project in someone's github, or you have a repo from your class, you can **fork** to your github account by clinking (while you're signed-in) the **fork** icon on the top of the project repo that you're trying to copy.
